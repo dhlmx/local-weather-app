@@ -12,7 +12,7 @@
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
     "postdocker:build": "npm run docker:tag",
     "docker:tag": "cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
-    "docker:run": "run -s -c docker:clean docker:runHelper",
+    "docker:run": "run-s -c docker:clean docker:runHelper",
     "docker:runHelper": "cross-conf-env docker run -e NODE_ENV=local --name $npm_package_config_imageName -d -p $npm_package_config_imagePort:3000 $npm_package_config_imageRepo",
     "predocker:publish": "echo Attention! Ensure `Docker Login` is correct.",
     "docker:publish": "cross-conf-env docker image push $npm_package_config_imageRepo:$npm_package_version",
@@ -70,6 +70,6 @@
   "config": {
     "imageRepo": "davidhl/localcast-weather",
     "imageName": "localcast-weather",
-    "imagePort": "8080"
+    "imagePort": "8082"
   }
 }
